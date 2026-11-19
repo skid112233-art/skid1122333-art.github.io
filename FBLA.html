@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Commons is a school resource hub for reserving shared equipment and spaces, submitting service requests, and tracking approvals in one place.">
+  <meta name="theme-color" content="#1d4ed8">
+  <title>Commons | School Resource Hub</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231d4ed8'/%3E%3Cpath d='M9 11h14M9 16h14M9 21h9' stroke='%23fff' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="FBLA.css?v=14">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="currentColor"/>
+          <path d="M9 11h14M9 16h14M9 21h9" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">
+          <strong>Commons</strong>
+          <span>Resource Hub</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#home" data-route="home">Home</a></li>
+          <li><a href="#catalog" data-route="catalog">Browse</a></li>
+          <li><a href="#requests" data-route="requests">Requests</a></li>
+          <li><a href="#activity" data-route="activity">My Activity <span class="nav-badge" data-message-count hidden></span></a></li>
+          <li data-admin-only hidden><a href="#admin" data-route="admin">Admin <span class="nav-badge" data-pending-count hidden></span></a></li>
+          <li data-owner-only hidden><a href="#owner" data-route="owner">Owner <span class="nav-badge" data-owner-count hidden></span></a></li>
+          <li><a href="#help" data-route="help">Help</a></li>
+        </ul>
+        <div class="header-tools">
+          <button type="button" class="icon-btn" id="text-size-toggle" aria-pressed="false" title="Larger text">
+            <span aria-hidden="true">A<sup>+</sup></span>
+            <span class="sr-only">Larger text</span>
+          </button>
+          <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" title="Dark mode">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+            <span class="sr-only">Dark mode</span>
+          </button>
+          <button type="button" class="user-chip" id="user-chip" title="Switch profile">
+            <span class="avatar" data-user-initials aria-hidden="true">?</span>
+            <span class="user-meta">
+              <span data-user-name>Sign in</span>
+              <small data-user-role></small>
+            </span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="view" id="view-home" data-view="home" aria-labelledby="home-title">
+      <div class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow" data-org-name>Henrico County Public Schools</p>
+            <h1 id="home-title" tabindex="-1">Every shared resource at school, in one place.</h1>
+            <p class="lead">Reserve equipment and rooms, report problems, and track approvals without paper sign-up sheets or lost emails.</p>
+            <div class="hero-actions">
+              <a class="btn btn-accent btn-lg" href="#catalog">Find a resource</a>
+              <a class="btn btn-outline-light btn-lg" href="#requests">Submit a request</a>
+            </div>
+          </div>
+          <aside class="glance" aria-labelledby="glance-title">
+            <h2 id="glance-title">Today at a glance</h2>
+            <ul class="glance-list" id="glance-list"></ul>
+            <a class="glance-link" href="#catalog">Check availability <span aria-hidden="true">→</span></a>
+          </aside>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="stat-grid stat-grid-raised" id="home-stats"></div>
+
+        <section class="section" aria-labelledby="how-title">
+          <div class="section-head">
+            <h2 id="how-title">How it works</h2>
+          </div>
+          <ol class="steps">
+            <li>
+              <span class="step-num" aria-hidden="true">1</span>
+              <h3>Find it</h3>
+              <p>Search the catalog and pick a date and time to see what is free right away.</p>
+            </li>
+            <li>
+              <span class="step-num" aria-hidden="true">2</span>
+              <h3>Reserve or report</h3>
+              <p>Book in a few clicks, or submit a service request when something needs fixing.</p>
+            </li>
+            <li>
+              <span class="step-num" aria-hidden="true">3</span>
+              <h3>Track everything</h3>
+              <p>Follow approvals, returns, and request updates from one dashboard.</p>
+            </li>
+          </ol>
+        </section>
+
+        <div class="split">
+          <section class="section" aria-labelledby="popular-title">
+            <div class="section-head">
+              <h2 id="popular-title">Most requested</h2>
+              <a href="#catalog">See all resources</a>
+            </div>
+            <div class="card-grid card-grid-compact" id="popular-grid"></div>
+          </section>
+          <section class="section" aria-labelledby="news-title">
+            <div class="section-head">
+              <h2 id="news-title">Announcements</h2>
+            </div>
+            <ul class="announcements" id="announcement-list"></ul>
+          </section>
+        </div>
+
+        <section class="section problem" aria-labelledby="problem-title">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow eyebrow-dark">Why Commons</p>
+              <h2 id="problem-title">Built for the problems schools actually have</h2>
+            </div>
+          </div>
+          <div class="feature-grid">
+            <article class="feature">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 14l2.5 2.5L16 12"/></svg>
+              <h3>No more double bookings</h3>
+              <p>Live availability checks every reservation against existing bookings and item counts before it is saved.</p>
+            </article>
+            <article class="feature">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+              <h3>Clear accountability</h3>
+              <p>Every booking shows who has an item, when it is due back, and whether staff approved it.</p>
+            </article>
+            <article class="feature">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"/></svg>
+              <h3>Faster fixes</h3>
+              <p>Service requests get a tracking number, a priority level, and a visible history of updates.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="view" id="view-catalog" data-view="catalog" aria-labelledby="catalog-title" hidden>
+      <div class="container">
+        <div class="page-head">
+          <h1 id="catalog-title" tabindex="-1">Browse resources</h1>
+          <p>Pick a date and time to see what is free. Select any resource to view its schedule and reserve it.</p>
+        </div>
+
+        <form class="filter-bar" id="filter-form" role="search" aria-label="Filter resources">
+          <div class="field field-search">
+            <label for="search-input">Search</label>
+            <input type="search" id="search-input" placeholder="Try “camera” or “study room”" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="category-select">Category</label>
+            <select id="category-select">
+              <option value="all">All categories</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filter-date">Date</label>
+            <input type="date" id="filter-date">
+          </div>
+          <div class="field">
+            <label for="filter-start">From</label>
+            <select id="filter-start"></select>
+          </div>
+          <div class="field">
+            <label for="filter-end">To</label>
+            <select id="filter-end"></select>
+          </div>
+          <div class="field">
+            <label for="sort-select">Sort by</label>
+            <select id="sort-select">
+              <option value="name">Name (A–Z)</option>
+              <option value="available">Most available</option>
+              <option value="popular">Most popular</option>
+            </select>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="available-only">
+            <span class="switch-track" aria-hidden="true"></span>
+            <span>Available only</span>
+          </label>
+        </form>
+
+        <p class="results-meta" id="results-meta" aria-live="polite"></p>
+        <div class="card-grid" id="resource-grid"></div>
+        <div class="empty-state" id="catalog-empty" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          <h2>No resources match</h2>
+          <p>Try a different search, another time, or turn off “Available only.”</p>
+          <button type="button" class="btn btn-ghost" id="clear-filters">Clear filters</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-requests" data-view="requests" aria-labelledby="requests-title" hidden>
+      <div class="container">
+        <div class="page-head">
+          <h1 id="requests-title" tabindex="-1">Service requests</h1>
+          <p>Report a broken projector, ask for IT help, or request supplies. Every request gets a tracking number and status updates.</p>
+        </div>
+
+        <div class="two-col two-col-form">
+          <form class="panel form" id="request-form" novalidate>
+            <h2>New request</h2>
+            <div class="field">
+              <label for="req-type">Request type</label>
+              <select id="req-type"></select>
+            </div>
+            <div class="field">
+              <label for="req-title">Short summary</label>
+              <input type="text" id="req-title" maxlength="80" placeholder="Example: Projector won't turn on" aria-describedby="req-title-error" required>
+              <p class="field-error" id="req-title-error"></p>
+            </div>
+            <div class="field">
+              <label for="req-location">Location</label>
+              <input type="text" id="req-location" maxlength="60" placeholder="Example: Room 214, Gym, or Library" autocomplete="off" aria-describedby="req-location-error" required>
+              <p class="field-error" id="req-location-error"></p>
+            </div>
+            <fieldset class="field">
+              <legend>Priority</legend>
+              <div class="segmented">
+                <label><input type="radio" name="priority" value="low"><span>Low</span></label>
+                <label><input type="radio" name="priority" value="normal" checked><span>Normal</span></label>
+                <label><input type="radio" name="priority" value="high"><span>High</span></label>
+                <label><input type="radio" name="priority" value="urgent"><span>Urgent</span></label>
+              </div>
+              <p class="hint">Use Urgent only for safety issues or problems stopping class right now.</p>
+            </fieldset>
+            <div class="field">
+              <label for="req-details">Details</label>
+              <textarea id="req-details" rows="4" maxlength="500" placeholder="What happened, when, and anything you already tried" aria-describedby="req-details-error req-details-count" required></textarea>
+              <p class="hint" id="req-details-count"><span id="req-count">0</span>/500 characters</p>
+              <p class="field-error" id="req-details-error"></p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit request</button>
+          </form>
+
+          <section class="panel" aria-labelledby="board-title">
+            <div class="panel-head">
+              <h2 id="board-title">Request board</h2>
+              <div class="pill-group" role="group" aria-label="Filter requests">
+                <button type="button" class="pill" data-request-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="pill" data-request-filter="mine" aria-pressed="false">Mine</button>
+                <button type="button" class="pill" data-request-filter="open" aria-pressed="false">Unresolved</button>
+                <button type="button" class="pill" data-request-filter="resolved" aria-pressed="false">Resolved</button>
+              </div>
+            </div>
+            <ul class="request-list" id="request-list"></ul>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-activity" data-view="activity" aria-labelledby="activity-title" hidden>
+      <div class="container">
+        <div class="page-head">
+          <h1 id="activity-title" tabindex="-1">My activity</h1>
+          <p>Everything you have reserved or requested, with live status updates.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Activity type">
+          <button type="button" role="tab" id="tab-reservations" data-tab="reservations" aria-controls="panel-reservations" aria-selected="true">Reservations <span class="tab-count" id="count-reservations">0</span></button>
+          <button type="button" role="tab" id="tab-requests" data-tab="requests" aria-controls="panel-requests" aria-selected="false" tabindex="-1">Requests <span class="tab-count" id="count-requests">0</span></button>
+          <button type="button" role="tab" id="tab-messages" data-tab="messages" aria-controls="panel-messages" aria-selected="false" tabindex="-1">Messages <span class="tab-count" id="count-messages">0</span></button>
+          <button type="button" role="tab" id="tab-approvals" data-tab="approvals" aria-controls="panel-approvals" aria-selected="false" tabindex="-1" hidden>Room approvals <span class="tab-count" id="count-approvals">0</span></button>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-reservations" aria-labelledby="tab-reservations">
+          <div class="panel-head">
+            <h2>Upcoming</h2>
+            <button type="button" class="btn btn-ghost btn-sm" id="export-mine">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              Export CSV
+            </button>
+          </div>
+          <ul class="booking-list" id="upcoming-list"></ul>
+          <h2 class="subhead">History</h2>
+          <ul class="booking-list" id="history-list"></ul>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-requests" aria-labelledby="tab-requests" hidden>
+          <div class="panel-head">
+            <h2>Your requests</h2>
+            <div class="booking-actions">
+              <button type="button" class="btn btn-ghost btn-sm" id="ask-jump">Send a message</button>
+              <a class="btn btn-ghost btn-sm" href="#requests">New request</a>
+            </div>
+          </div>
+          <ul class="request-list" id="my-request-list"></ul>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-messages" aria-labelledby="tab-messages" hidden>
+          <div class="panel-head">
+            <div>
+              <h2>Messages</h2>
+              <p class="hint">Message a teacher, a student, or your school's administrators, and read their replies.</p>
+            </div>
+          </div>
+          <div class="two-col access-grid">
+            <form class="form" id="ask-form" data-prefix="ask" novalidate>
+              <h3>Send a message</h3>
+              <div class="field">
+                <label for="ask-to">To</label>
+                <select id="ask-to" aria-describedby="ask-to-error"></select>
+                <p class="field-error" id="ask-to-error"></p>
+              </div>
+              <div class="field" id="ask-other-field" hidden>
+                <label for="ask-other">Their email</label>
+                <input type="email" id="ask-other" maxlength="254" autocomplete="off" spellcheck="false" placeholder="name@school.org" aria-describedby="ask-other-hint ask-other-error">
+                <p class="hint" id="ask-other-hint"></p>
+                <p class="field-error" id="ask-other-error"></p>
+              </div>
+              <div class="field">
+                <label for="ask-about">About <span class="optional">(optional)</span></label>
+                <select id="ask-about"></select>
+              </div>
+              <div class="field">
+                <label for="ask-subject">Subject</label>
+                <input type="text" id="ask-subject" maxlength="100" aria-describedby="ask-subject-error" required>
+                <p class="field-error" id="ask-subject-error"></p>
+              </div>
+              <div class="field">
+                <label for="ask-body">Message</label>
+                <textarea id="ask-body" rows="4" maxlength="1000" aria-describedby="ask-body-error" required></textarea>
+                <p class="field-error" id="ask-body-error"></p>
+              </div>
+              <label class="checkbox">
+                <input type="checkbox" id="ask-mailto">
+                <span>Also open it in my email app</span>
+              </label>
+              <button type="submit" class="btn btn-primary signup-add" id="ask-submit">Send message</button>
+            </form>
+            <div>
+              <h3 class="chart-title">Your messages</h3>
+              <ul class="message-list" id="message-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="panel-approvals" aria-labelledby="tab-approvals" hidden>
+          <div class="panel-head">
+            <div>
+              <h2>Room bookings to approve</h2>
+              <p class="hint">Teachers can approve or decline room bookings that need approval. Administrators see every decision, and the principal can override it.</p>
+            </div>
+          </div>
+          <ul class="approval-list" id="teacher-approval-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-admin" data-view="admin" aria-labelledby="admin-title" hidden>
+      <div class="container">
+        <div class="page-head page-head-row">
+          <div>
+            <h1 id="admin-title" tabindex="-1">Admin dashboard</h1>
+            <p>Approve reservations, manage the request queue, and keep the catalog up to date.</p>
+          </div>
+          <button type="button" class="btn btn-ghost" id="export-all">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+            Export all reservations
+          </button>
+        </div>
+
+        <div class="stat-grid" id="admin-stats"></div>
+
+        <section class="panel" id="compose-panel" aria-labelledby="compose-title">
+          <div class="panel-head">
+            <div>
+              <h2 id="compose-title">Send a message</h2>
+              <p class="hint">Write to a student, a teacher, another administrator, or the Commons owner. They read it in My Activity → Messages and can reply there.</p>
+            </div>
+          </div>
+          <div class="two-col access-grid">
+            <form class="form" id="compose-form" data-prefix="compose" novalidate>
+              <div class="field">
+                <label for="compose-to">To</label>
+                <select id="compose-to" aria-describedby="compose-to-error"></select>
+                <p class="field-error" id="compose-to-error"></p>
+              </div>
+              <div class="field" id="compose-other-field" hidden>
+                <label for="compose-other">Their email</label>
+                <input type="email" id="compose-other" maxlength="254" autocomplete="off" spellcheck="false" placeholder="name@school.org" aria-describedby="compose-other-hint compose-other-error">
+                <p class="hint" id="compose-other-hint"></p>
+                <p class="field-error" id="compose-other-error"></p>
+              </div>
+              <div class="field">
+                <label for="compose-about">About <span class="optional">(optional)</span></label>
+                <select id="compose-about"></select>
+                <p class="hint" id="compose-about-hint">Picking a request or reservation fills in the person who made it.</p>
+              </div>
+              <div class="field">
+                <label for="compose-subject">Subject</label>
+                <input type="text" id="compose-subject" maxlength="100" aria-describedby="compose-subject-error" required>
+                <p class="field-error" id="compose-subject-error"></p>
+              </div>
+              <div class="field">
+                <label for="compose-body">Message</label>
+                <textarea id="compose-body" rows="4" maxlength="1000" aria-describedby="compose-body-error" required></textarea>
+                <p class="field-error" id="compose-body-error"></p>
+              </div>
+              <label class="checkbox">
+                <input type="checkbox" id="compose-mailto">
+                <span>Also open it in my email app</span>
+              </label>
+              <button type="submit" class="btn btn-primary signup-add">Send message</button>
+            </form>
+            <div>
+              <h3 class="chart-title">Your recent messages</h3>
+              <ul class="message-list" id="admin-message-list"></ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="oversight-title" data-principal-only hidden>
+          <div class="panel-head">
+            <div>
+              <h2 id="oversight-title">Principal oversight</h2>
+              <p class="hint">Every approval, decline, and request status change made by your school's other administrators. Override reverses a decision, and administrators can't change a request back after you override it.</p>
+            </div>
+            <span class="tab-count" id="oversight-count">0</span>
+          </div>
+          <ul class="approval-list" id="oversight-list"></ul>
+        </section>
+
+        <section class="panel" aria-labelledby="queue-title">
+          <div class="panel-head">
+            <h2 id="queue-title">Request queue</h2>
+            <label class="switch">
+              <input type="checkbox" id="show-resolved">
+              <span class="switch-track" aria-hidden="true"></span>
+              <span>Show resolved</span>
+            </label>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <caption class="sr-only">Service requests sorted by priority</caption>
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Request</th>
+                  <th scope="col">Priority</th>
+                  <th scope="col">Submitted</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Note</th>
+                  <th scope="col"><span class="sr-only">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody id="queue-body"></tbody>
+            </table>
+          </div>
+          <p class="empty-inline" id="queue-empty" hidden>The queue is clear. Nice work.</p>
+        </section>
+
+
+
+        <div class="two-col">
+          <section class="panel" aria-labelledby="approvals-title">
+            <div class="panel-head">
+              <h2 id="approvals-title">Pending approvals</h2>
+              <span class="tab-count" id="approval-count">0</span>
+            </div>
+            <ul class="approval-list" id="approval-list"></ul>
+          </section>
+          <section class="panel" aria-labelledby="insights-title">
+            <h2 id="insights-title">Insights</h2>
+            <h3 class="chart-title">Bookings by category</h3>
+            <div id="category-chart"></div>
+            <h3 class="chart-title">Requests by status</h3>
+            <div id="status-chart"></div>
+            <h3 class="chart-title">Most booked</h3>
+            <ol class="rank-list" id="top-resources"></ol>
+          </section>
+        </div>
+
+        <section class="panel" aria-labelledby="signin-access-title">
+          <div class="panel-head">
+            <div>
+              <h2 id="signin-access-title">Sign-in access</h2>
+              <p class="hint">Only emails on an authorized domain can sign in, and the domain decides whether they sign in as a student or a teacher. Administrator emails always have access.</p>
+            </div>
+            <span class="tab-count" id="domain-count">0</span>
+          </div>
+          <div class="two-col access-grid">
+            <div>
+              <form class="form" id="domain-form" novalidate>
+                <div class="field">
+                  <label for="domain-input">Authorize an email domain</label>
+                  <div class="inline-field">
+                    <input type="text" id="domain-input" maxlength="253" placeholder="Example: jrtucker.k12.example" autocomplete="off" spellcheck="false" aria-describedby="domain-input-error" required>
+                    <label class="sr-only" for="domain-role">Domain type</label>
+                    <select id="domain-role">
+                      <option value="student">Students</option>
+                      <option value="teacher">Teachers</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Authorize</button>
+                  </div>
+                  <p class="field-error" id="domain-input-error"></p>
+                  <p class="hint">Adding a domain that's already listed moves it to the type you pick.</p>
+                </div>
+              </form>
+              <h3 class="chart-title">Student domains</h3>
+              <ul class="inventory-list" id="student-domain-list"></ul>
+              <h3 class="chart-title">Teacher domains</h3>
+              <ul class="inventory-list" id="teacher-domain-list"></ul>
+            </div>
+            <div>
+              <form class="form" id="admin-add-form" novalidate>
+                <div class="field">
+                  <label for="admin-add-email">Add an administrator</label>
+                  <div class="inline-field">
+                    <input type="email" id="admin-add-email" maxlength="254" placeholder="name@school.org" autocomplete="off" spellcheck="false" aria-describedby="admin-add-email-error admin-add-hint" required>
+                    <button type="submit" class="btn btn-primary">Add admin</button>
+                  </div>
+                  <p class="field-error" id="admin-add-email-error"></p>
+                  <p class="hint" id="admin-add-hint">They sign in as Administrator for <strong id="admin-add-school"></strong>, the school you're signed in to.</p>
+                </div>
+              </form>
+              <h3 class="chart-title">Administrator emails</h3>
+              <ul class="inventory-list" id="admin-email-list"></ul>
+              <h3 class="chart-title">Accounts</h3>
+              <ul class="inventory-list" id="account-list"></ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="report-title">
+          <div class="panel-head">
+            <div>
+              <h2 id="report-title">Report a website problem</h2>
+              <p class="hint">Found a bug or something confusing in Commons? Send it to the Commons owner.</p>
+            </div>
+          </div>
+          <div class="two-col access-grid">
+            <form class="form" id="report-form" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="report-category">Type of problem</label>
+                  <select id="report-category">
+                    <option>Something is broken</option>
+                    <option>Something looks wrong</option>
+                    <option>Sign-in or account problem</option>
+                    <option>Feature request</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="report-page">Where on the site</label>
+                  <select id="report-page">
+                    <option>Home</option>
+                    <option>Browse resources</option>
+                    <option>Service requests</option>
+                    <option>My Activity</option>
+                    <option>Admin dashboard</option>
+                    <option>Messages</option>
+                    <option>Help and policies</option>
+                    <option>Sign-in screen</option>
+                    <option>County sign-up</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="report-details">What happened?</label>
+                <textarea id="report-details" rows="4" maxlength="600" placeholder="What you did, what you expected, and what happened instead" aria-describedby="report-details-error" required></textarea>
+                <p class="field-error" id="report-details-error"></p>
+              </div>
+              <button type="submit" class="btn btn-primary">Send report</button>
+            </form>
+            <div>
+              <h3 class="chart-title">Your reports</h3>
+              <ul class="request-list" id="my-report-list"></ul>
+            </div>
+          </div>
+        </section>
+
+
+        <div class="two-col">
+          <form class="panel form" id="resource-form" novalidate>
+            <h2>Add a resource</h2>
+            <div class="field">
+              <label for="nr-name">Name</label>
+              <input type="text" id="nr-name" maxlength="60" aria-describedby="nr-name-error" required>
+              <p class="field-error" id="nr-name-error"></p>
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="nr-category">Category</label>
+                <select id="nr-category"></select>
+              </div>
+              <div class="field">
+                <label for="nr-type">Type</label>
+                <select id="nr-type">
+                  <option value="equipment">Equipment</option>
+                  <option value="space">Space</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="nr-location">Storage location</label>
+              <input type="text" id="nr-location" maxlength="60" placeholder="Example: Room 130 or Media Center" autocomplete="off" aria-describedby="nr-location-error" required>
+              <p class="field-error" id="nr-location-error"></p>
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="nr-quantity">Units</label>
+                <input type="number" id="nr-quantity" min="1" max="500" value="1" inputmode="numeric" aria-describedby="nr-quantity-error" required>
+                <p class="field-error" id="nr-quantity-error"></p>
+              </div>
+              <div class="field">
+                <label for="nr-hours">Max hours per booking</label>
+                <input type="number" id="nr-hours" min="1" max="11" value="2" inputmode="numeric" aria-describedby="nr-hours-error" required>
+                <p class="field-error" id="nr-hours-error"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="nr-description">Description</label>
+              <textarea id="nr-description" rows="3" maxlength="300" aria-describedby="nr-description-error" required></textarea>
+              <p class="field-error" id="nr-description-error"></p>
+            </div>
+            <div class="field">
+              <label for="nr-features">Features <span class="optional">(optional, comma separated)</span></label>
+              <input type="text" id="nr-features" placeholder="Seats 8, Whiteboard">
+            </div>
+            <label class="checkbox">
+              <input type="checkbox" id="nr-approval">
+              <span>Bookings need administrator approval</span>
+            </label>
+            <button type="submit" class="btn btn-primary">Add to catalog</button>
+          </form>
+
+          <section class="panel" aria-labelledby="inventory-title">
+            <div class="panel-head">
+              <h2 id="inventory-title">Inventory</h2>
+              <span class="tab-count" id="inventory-count">0</span>
+            </div>
+            <ul class="inventory-list" id="inventory-list"></ul>
+            <div class="danger-zone">
+              <h3>Demo data</h3>
+              <p>Restore the original sample resources, reservations, and requests. Your profile is kept.</p>
+              <button type="button" class="btn btn-danger-ghost" id="reset-data">Reset demo data</button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-owner" data-view="owner" aria-labelledby="owner-title" hidden>
+      <div class="container">
+        <div class="page-head">
+          <h1 id="owner-title" tabindex="-1">Commons owner</h1>
+          <p>Approve or decline counties and schools that want to join Commons, and follow up on website problems reported by school administrators.</p>
+        </div>
+
+        <div class="stat-grid" id="owner-stats"></div>
+        <section class="panel" id="county-panel" aria-labelledby="county-title">
+          <div class="panel-head">
+            <div>
+              <h2 id="county-title">Join requests</h2>
+              <p class="hint">Approving a county gives its county and school administrators admin access, authorizes its email domains, and adds its schools to the sign-in screen.</p>
+            </div>
+            <span class="tab-count" id="county-count">0</span>
+          </div>
+          <ul class="approval-list" id="county-list"></ul>
+        </section>
+
+        <section class="panel" aria-labelledby="principals-title">
+          <div class="panel-head">
+            <div>
+              <h2 id="principals-title">School principals</h2>
+              <p class="hint">A principal signs in as Administrator for their school with the same powers as any school administrator, and can also review and override the other administrators' decisions. Each school has one principal.</p>
+            </div>
+            <span class="tab-count" id="principal-count">0</span>
+          </div>
+          <form class="form" id="principal-form" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="principal-school">School</label>
+                <input type="text" id="principal-school" list="school-options" maxlength="80" autocomplete="off" placeholder="Start typing a school" aria-describedby="principal-school-error" required>
+                <p class="field-error" id="principal-school-error"></p>
+              </div>
+              <div class="field">
+                <label for="principal-email">Principal's email</label>
+                <input type="email" id="principal-email" maxlength="254" autocomplete="off" spellcheck="false" placeholder="principal@school.org" aria-describedby="principal-email-error" required>
+                <p class="field-error" id="principal-email-error"></p>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary signup-add">Set principal</button>
+          </form>
+          <ul class="inventory-list county-schools" id="principal-list"></ul>
+        </section>
+
+        <section class="panel" aria-labelledby="owner-reports-title">
+          <div class="panel-head">
+            <div>
+              <h2 id="owner-reports-title">Website problem reports</h2>
+              <p class="hint">Sent by school administrators from their Admin page.</p>
+            </div>
+            <span class="tab-count" id="owner-report-count">0</span>
+          </div>
+          <ul class="request-list" id="owner-report-list"></ul>
+        </section>
+
+        <section class="panel" aria-labelledby="owner-messages-title">
+          <div class="panel-head">
+            <div>
+              <h2 id="owner-messages-title">Messages from administrators</h2>
+              <p class="hint">Sent by school and county administrators from their Admin page. Your replies show up in their My Activity → Messages.</p>
+            </div>
+            <span class="tab-count" id="owner-message-count">0</span>
+          </div>
+          <ul class="message-list" id="owner-message-list"></ul>
+        </section>
+      </div>
+    </section>
+
+    <section class="view" id="view-signup" data-view="signup" aria-labelledby="signup-title" hidden>
+      <div class="container">
+        <div class="page-head">
+          <h1 id="signup-title" tabindex="-1">Bring Commons to your county</h1>
+          <p>County administrators can register their school division and name an administrator for each school. The Commons team reviews every sign-up before any accounts are turned on.</p>
+        </div>
+
+        <div class="panel signup-done" id="signup-done" tabindex="-1" role="status" hidden>
+          <h2>Thanks! <span id="signup-done-county"></span> is waiting for review.</h2>
+          <p>Once it's approved, you can sign in with the email and password you just created. Your school administrators sign in with their own emails and create their passwords the first time.</p>
+        </div>
+
+        <div class="two-col two-col-wide">
+          <form class="panel form" id="signup-form" novalidate>
+            <h2>County details</h2>
+            <div class="form-grid">
+              <div class="field">
+                <label for="signup-county">County or school division</label>
+                <input type="text" id="signup-county" maxlength="80" placeholder="Example: Chesterfield County Public Schools" aria-describedby="signup-county-error" required>
+                <p class="field-error" id="signup-county-error"></p>
+              </div>
+              <div class="field">
+                <label for="signup-state">State</label>
+                <input type="text" id="signup-state" maxlength="40" value="Virginia" aria-describedby="signup-state-error" required>
+                <p class="field-error" id="signup-state-error"></p>
+              </div>
+            </div>
+
+            <h2 class="subhead">County administrator</h2>
+            <div class="form-grid">
+              <div class="field">
+                <label for="signup-name">Your name</label>
+                <input type="text" id="signup-name" maxlength="40" autocomplete="name" aria-describedby="signup-name-error" required>
+                <p class="field-error" id="signup-name-error"></p>
+              </div>
+              <div class="field">
+                <label for="signup-email">Your work email</label>
+                <input type="email" id="signup-email" maxlength="254" autocomplete="email" spellcheck="false" aria-describedby="signup-email-error" required>
+                <p class="field-error" id="signup-email-error"></p>
+              </div>
+              <div class="field">
+                <label for="signup-password">Create a password</label>
+                <input type="password" id="signup-password" maxlength="128" autocomplete="new-password" aria-describedby="signup-password-error" required>
+                <p class="field-error" id="signup-password-error"></p>
+              </div>
+              <div class="field">
+                <label for="signup-confirm">Confirm password</label>
+                <input type="password" id="signup-confirm" maxlength="128" autocomplete="new-password" aria-describedby="signup-confirm-error" required>
+                <p class="field-error" id="signup-confirm-error"></p>
+              </div>
+            </div>
+
+            <h2 class="subhead">Email domains</h2>
+            <p class="hint">Enter the email domains your staff and students use, the part after the @. Separate more than one with commas. When your county is approved, these domains are authorized automatically: staff domains sign in as Teachers and student domains as Students.</p>
+            <div class="form-grid">
+              <div class="field">
+                <label for="signup-teacher-domain">Staff email domains</label>
+                <input type="text" id="signup-teacher-domain" maxlength="600" placeholder="county.k12.va.us" spellcheck="false" autocomplete="off" aria-describedby="signup-teacher-domain-error" required>
+                <p class="field-error" id="signup-teacher-domain-error"></p>
+              </div>
+              <div class="field">
+                <label for="signup-student-domain">Student email domains <span class="optional">(optional)</span></label>
+                <input type="text" id="signup-student-domain" maxlength="600" placeholder="students.county.k12.va.us" spellcheck="false" autocomplete="off" aria-describedby="signup-student-domain-error">
+                <p class="field-error" id="signup-student-domain-error"></p>
+              </div>
+            </div>
+
+            <h2 class="subhead">School administrators</h2>
+            <p class="hint">Add each school that will use Commons and the person who will manage it there. They get administrator access when your county is approved.</p>
+            <div class="school-rows" id="signup-schools"></div>
+            <button type="button" class="btn btn-ghost btn-sm signup-add" id="signup-add-school">+ Add another school</button>
+
+            <p class="form-error" id="signup-error" role="alert"></p>
+            <button type="submit" class="btn btn-primary" id="signup-submit">Submit for review</button>
+          </form>
+
+          <div class="stack">
+            <section class="panel" aria-labelledby="signup-next-title">
+              <h2 id="signup-next-title">What happens next</h2>
+              <ol class="check-list">
+                <li>The Commons team reviews your county's sign-up.</li>
+                <li>Once approved, your email domains are authorized and your schools appear on the sign-in screen.</li>
+                <li>You, your school administrators, teachers, and students sign in with their school email or Google.</li>
+              </ol>
+            </section>
+            <section class="panel" aria-labelledby="signup-signin-title">
+              <h2 id="signup-signin-title">Already approved?</h2>
+              <p>Sign in with the email and password you used when you signed up.</p>
+              <button type="button" class="btn btn-ghost" id="signup-signin">Sign in</button>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-help" data-view="help" aria-labelledby="help-title" hidden>
+      <div class="container">
+        <div class="page-head">
+          <h1 id="help-title" tabindex="-1">Help and policies</h1>
+          <p>Answers to common questions and the rules that keep shared resources fair for everyone.</p>
+        </div>
+        <div class="two-col two-col-wide">
+          <section class="panel" aria-labelledby="faq-title">
+            <h2 id="faq-title">Frequently asked questions</h2>
+            <div class="faq" id="faq-list"></div>
+          </section>
+          <div class="stack">
+            <section class="panel" aria-labelledby="policy-title">
+              <h2 id="policy-title">Borrowing policies</h2>
+              <ul class="check-list" id="policy-list"></ul>
+            </section>
+            <section class="panel" aria-labelledby="access-title">
+              <h2 id="access-title">Accessibility</h2>
+              <p>Commons is designed to meet WCAG 2.2 AA. Every feature works with a keyboard and screen reader, and you can switch to larger text or dark mode from the header at any time.</p>
+            </section>
+            <section class="panel" aria-labelledby="contact-title">
+              <h2 id="contact-title">Contact your front office</h2>
+              <ul class="contact-list" id="help-contact"></ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>Commons</strong>
+        <p>The shared resource hub for <span data-org-name>Henrico County Public Schools</span>. Reserve, report, and track in one place.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="#catalog">Browse resources</a></li>
+          <li><a href="#requests">Service requests</a></li>
+          <li><a href="#activity">My activity</a></li>
+          <li><a href="#help">Help and policies</a></li>
+          <li><a href="#signup">Sign up your county</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <ul id="footer-contact"></ul>
+      </div>
+    </div>
+    <div class="container footer-base">
+      <p>&copy; <span id="footer-year"></span> Commons Resource Hub</p>
+    </div>
+  </footer>
+
+  <dialog class="dialog" id="resource-dialog" aria-labelledby="rd-title">
+    <div class="dialog-inner">
+      <header class="dialog-head">
+        <span class="cat-icon cat-icon-lg" id="rd-icon"></span>
+        <div class="dialog-heading">
+          <p class="eyebrow eyebrow-dark" id="rd-category"></p>
+          <h2 id="rd-title"></h2>
+          <p class="muted" id="rd-location"></p>
+        </div>
+        <button type="button" class="icon-btn dialog-close" data-close aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+      <p id="rd-description"></p>
+      <ul class="meta-list" id="rd-meta"></ul>
+
+      <section class="schedule" aria-labelledby="rd-schedule-title">
+        <h3 id="rd-schedule-title">Schedule for <span id="rd-schedule-date"></span></h3>
+        <div class="timeline" id="rd-timeline" aria-hidden="true"></div>
+        <div class="timeline-scale" id="rd-scale" aria-hidden="true"></div>
+        <ul class="schedule-list" id="rd-bookings"></ul>
+      </section>
+
+      <form class="form reserve-form" id="reserve-form" novalidate>
+        <h3>Reserve this resource</h3>
+        <div class="form-grid form-grid-4">
+          <div class="field">
+            <label for="rf-date">Date</label>
+            <input type="date" id="rf-date" required>
+          </div>
+          <div class="field">
+            <label for="rf-start">Start</label>
+            <select id="rf-start"></select>
+          </div>
+          <div class="field">
+            <label for="rf-end">End</label>
+            <select id="rf-end"></select>
+          </div>
+          <div class="field" id="rf-qty-field">
+            <label for="rf-qty">Units</label>
+            <input type="number" id="rf-qty" min="1" value="1" inputmode="numeric">
+          </div>
+        </div>
+        <p class="availability-hint" id="reserve-hint" aria-live="polite"></p>
+        <div class="field">
+          <label for="rf-purpose">What is it for?</label>
+          <input type="text" id="rf-purpose" maxlength="120" placeholder="Example: Biology lab, period 3">
+        </div>
+        <p class="form-error" id="reserve-error" role="alert"></p>
+        <p class="hint" id="reserve-note"></p>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-ghost" data-close>Cancel</button>
+          <button type="submit" class="btn btn-primary" id="reserve-submit">Confirm reservation</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog class="dialog dialog-sm" id="login-dialog" aria-labelledby="login-title">
+    <form class="dialog-inner form" id="login-form" novalidate>
+      <header class="dialog-head">
+        <div class="dialog-heading">
+          <h2 id="login-title">Welcome to Commons</h2>
+          <p class="muted">Pick your Henrico County school, then sign in with your school email and Commons password. Only email domains approved by an administrator can sign in.</p>
+        </div>
+        <button type="button" class="icon-btn dialog-close" id="login-close" data-close aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+      <div class="field">
+        <label for="login-school">School</label>
+        <input type="text" id="login-school" list="school-options" maxlength="80" autocomplete="off" placeholder="Start typing, like Tucker or Deep Run" aria-describedby="login-school-error" required>
+        <datalist id="school-options"></datalist>
+        <p class="field-error" id="login-school-error"></p>
+      </div>
+      <div class="google-auth">
+        <div id="google-btn" class="google-btn-slot" hidden></div>
+        <button type="button" class="btn btn-ghost btn-block btn-google" id="google-fallback">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23 12.27c0-.8-.07-1.56-.2-2.27H12v4.3h6.17a5.28 5.28 0 0 1-2.29 3.46v2.87h3.7C21.74 18.65 23 15.7 23 12.27z"/><path fill="#34A853" d="M12 23.5c3.1 0 5.7-1.03 7.6-2.8l-3.7-2.87c-1.03.69-2.35 1.1-3.9 1.1-3 0-5.54-2.02-6.45-4.74H1.73v2.97A11.5 11.5 0 0 0 12 23.5z"/><path fill="#FBBC05" d="M5.55 14.19a6.9 6.9 0 0 1 0-4.38V6.84H1.73a11.5 11.5 0 0 0 0 10.32z"/><path fill="#EA4335" d="M12 5.07c1.69 0 3.2.58 4.4 1.72l3.28-3.28A11.04 11.04 0 0 0 12 .5 11.5 11.5 0 0 0 1.73 6.84l3.82 2.97C6.46 7.09 9 5.07 12 5.07z"/></svg>
+          Continue with Google
+        </button>
+        <p class="hint" id="google-hint">Sign in or create your account with Google. Pick your school below first. Your school email still has to be on an approved domain.</p>
+        <p class="divider" aria-hidden="true"><span>or use your email</span></p>
+      </div>
+      <div class="field">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" maxlength="254" autocomplete="email" inputmode="email" placeholder="name@school.org" aria-describedby="login-email-status login-email-error" spellcheck="false" autocapitalize="off" required>
+        <p class="email-status" id="login-email-status" aria-live="polite"></p>
+        <p class="field-error" id="login-email-error"></p>
+      </div>
+      <div class="field" id="login-password-field">
+        <label for="login-password" id="login-password-label">Password</label>
+        <input type="password" id="login-password" maxlength="128" autocomplete="current-password" aria-describedby="login-password-hint login-password-error" required>
+        <p class="hint" id="login-password-hint"></p>
+        <p class="field-error" id="login-password-error"></p>
+      </div>
+      <div class="field" id="login-confirm-field" hidden>
+        <label for="login-confirm">Confirm password</label>
+        <input type="password" id="login-confirm" maxlength="128" autocomplete="new-password" aria-describedby="login-confirm-error">
+        <p class="field-error" id="login-confirm-error"></p>
+      </div>
+      <div class="field">
+        <label for="login-name">Your name</label>
+        <input type="text" id="login-name" maxlength="40" autocomplete="name" aria-describedby="login-name-error" required>
+        <p class="field-error" id="login-name-error"></p>
+      </div>
+      <fieldset class="field">
+        <legend>Role</legend>
+        <div class="role-grid">
+          <label class="role-card">
+            <input type="radio" name="role" value="student" checked>
+            <span><strong>Student</strong><small>Reserve and report</small></span>
+          </label>
+          <label class="role-card">
+            <input type="radio" name="role" value="teacher">
+            <span><strong>Teacher</strong><small>Book and approve rooms</small></span>
+          </label>
+          <label class="role-card">
+            <input type="radio" name="role" value="admin">
+            <span><strong>Administrator</strong><small>Approve and manage</small></span>
+          </label>
+        </div>
+      </fieldset>
+      <p class="hint">Your email domain sets whether you're a Student or Teacher. Administrator is only for approved administrator emails. Principals sign in as Administrator too.</p>
+      <p class="form-error" id="login-error" role="alert"></p>
+      <button type="submit" class="btn btn-primary btn-block" id="login-submit">Sign in</button>
+      <p class="hint login-alt">County administrator? <a href="#signup" id="login-signup-link">Sign up your county for Commons</a></p>
+    </form>
+  </dialog>
+
+  <dialog class="dialog dialog-sm" id="message-dialog" aria-labelledby="message-title">
+    <form class="dialog-inner form" id="message-form" novalidate>
+      <header class="dialog-head">
+        <div class="dialog-heading">
+          <p class="eyebrow eyebrow-dark" id="message-context"></p>
+          <h2 id="message-title">Send a message</h2>
+          <p class="muted" id="message-to"></p>
+        </div>
+        <button type="button" class="icon-btn dialog-close" data-close aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+      <div class="field">
+        <label for="msg-subject">Subject</label>
+        <input type="text" id="msg-subject" maxlength="100" aria-describedby="msg-subject-error" required>
+        <p class="field-error" id="msg-subject-error"></p>
+      </div>
+      <div class="field">
+        <label for="msg-body">Message</label>
+        <textarea id="msg-body" rows="5" maxlength="1000" aria-describedby="msg-body-error" required></textarea>
+        <p class="field-error" id="msg-body-error"></p>
+      </div>
+      <label class="checkbox">
+        <input type="checkbox" id="msg-mailto" aria-describedby="msg-mailto-hint">
+        <span>Also open it in my email app</span>
+      </label>
+      <p class="hint" id="msg-mailto-hint"></p>
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-ghost" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="dialog dialog-sm" id="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+    <form class="dialog-inner" method="dialog">
+      <h2 id="confirm-title"></h2>
+      <p id="confirm-message"></p>
+      <div class="dialog-actions">
+        <button class="btn btn-ghost" value="cancel" id="confirm-cancel">Go back</button>
+        <button class="btn btn-primary" value="confirm" id="confirm-ok">Confirm</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <div class="noscript">Commons needs JavaScript to load resources and save reservations. Please enable it and reload the page.</div>
+  </noscript>
+
+  <script src="FBLA.js?v=25"></script>
+</body>
+</html>
