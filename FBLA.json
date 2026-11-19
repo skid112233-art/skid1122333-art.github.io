@@ -1,0 +1,733 @@
+{
+  "organization": {
+    "name": "Henrico County Public Schools",
+    "shortName": "Henrico Schools",
+    "email": "resources@henrico.k12.example",
+    "phone": "(555) 014-2290",
+    "office": "Main Office, Room 101"
+  },
+  "settings": {
+    "open": "07:00",
+    "close": "18:00",
+    "maxDaysAhead": 30,
+    "firstRequestNumber": 1035
+  },
+  "categories": [
+    {
+      "name": "Technology",
+      "color": "#2563eb",
+      "description": "Laptops, calculators, projectors, and other devices."
+    },
+    {
+      "name": "Media",
+      "color": "#9333ea",
+      "description": "Cameras, audio gear, and production equipment."
+    },
+    {
+      "name": "Science",
+      "color": "#0d9488",
+      "description": "Lab instruments, sensors, and makerspace tools."
+    },
+    {
+      "name": "Spaces",
+      "color": "#ea580c",
+      "description": "Study rooms, labs, studios, and event venues."
+    },
+    {
+      "name": "Events",
+      "color": "#db2777",
+      "description": "Tables, tents, and sound systems for school events."
+    }
+  ],
+  "requestTypes": [
+    "Facilities & Maintenance",
+    "IT & Technology Support",
+    "Classroom Supplies",
+    "Custodial",
+    "Safety Concern"
+  ],
+  "resources": [
+    {
+      "id": "chromebook-cart",
+      "name": "Chromebook Cart",
+      "category": "Technology",
+      "type": "equipment",
+      "location": "Library Workroom",
+      "quantity": 3,
+      "maxHours": 4,
+      "requiresApproval": false,
+      "description": "Rolling cart with 30 charged Chromebooks and headphones. Return it to the library workroom and plug it in before 3:30 PM.",
+      "features": [
+        "30 devices",
+        "Headphones",
+        "Built-in charging"
+      ]
+    },
+    {
+      "id": "ti-84",
+      "name": "TI-84 Plus CE Calculator",
+      "category": "Technology",
+      "type": "equipment",
+      "location": "Math Office, Room 214",
+      "quantity": 25,
+      "maxHours": 8,
+      "requiresApproval": false,
+      "description": "Graphing calculators for tests, labs, and review sessions. Batteries are checked every week.",
+      "features": [
+        "Test approved",
+        "Rechargeable"
+      ]
+    },
+    {
+      "id": "projector",
+      "name": "Portable Projector",
+      "category": "Technology",
+      "type": "equipment",
+      "location": "Media Center",
+      "quantity": 4,
+      "maxHours": 6,
+      "requiresApproval": false,
+      "description": "Short-throw HDMI projector with a 6-foot pull-up screen for rooms without a mounted display.",
+      "features": [
+        "HDMI + USB-C",
+        "Screen included"
+      ]
+    },
+    {
+      "id": "vr-kit",
+      "name": "VR Headset Kit",
+      "category": "Technology",
+      "type": "equipment",
+      "location": "Media Center",
+      "quantity": 1,
+      "maxHours": 3,
+      "requiresApproval": true,
+      "description": "Ten standalone VR headsets with sanitizing wipes for virtual field trips and simulations.",
+      "features": [
+        "10 headsets",
+        "Teacher supervised"
+      ]
+    },
+    {
+      "id": "camera-kit",
+      "name": "Mirrorless Camera Kit",
+      "category": "Media",
+      "type": "equipment",
+      "location": "Media Center",
+      "quantity": 4,
+      "maxHours": 4,
+      "requiresApproval": true,
+      "description": "Camera body, 18–45mm lens, spare battery, and a 64 GB SD card. Made for yearbook, journalism, and video projects.",
+      "features": [
+        "4K video",
+        "SD card included",
+        "Spare battery"
+      ]
+    },
+    {
+      "id": "tripod",
+      "name": "Video Tripod",
+      "category": "Media",
+      "type": "equipment",
+      "location": "Media Center",
+      "quantity": 6,
+      "maxHours": 8,
+      "requiresApproval": false,
+      "description": "Fluid-head tripod that fits cameras and phones. Includes a phone mount and carrying bag.",
+      "features": [
+        "Phone mount",
+        "Carry bag"
+      ]
+    },
+    {
+      "id": "mic-kit",
+      "name": "Wireless Microphone Kit",
+      "category": "Media",
+      "type": "equipment",
+      "location": "Media Center",
+      "quantity": 3,
+      "maxHours": 4,
+      "requiresApproval": true,
+      "description": "Two-person clip-on microphone kit that connects to cameras and phones for interviews and podcasts.",
+      "features": [
+        "2 transmitters",
+        "Phone adapter"
+      ]
+    },
+    {
+      "id": "printer-3d",
+      "name": "3D Printer",
+      "category": "Science",
+      "type": "equipment",
+      "location": "Makerspace, Room 130",
+      "quantity": 2,
+      "maxHours": 3,
+      "requiresApproval": true,
+      "description": "PLA filament printer for engineering prototypes. Upload your print file at least one school day before your slot.",
+      "features": [
+        "PLA filament",
+        "Staff assisted"
+      ]
+    },
+    {
+      "id": "microscope",
+      "name": "Digital Microscope",
+      "category": "Science",
+      "type": "equipment",
+      "location": "Science Wing, Room 120",
+      "quantity": 12,
+      "maxHours": 2,
+      "requiresApproval": false,
+      "description": "USB microscopes that show slides live on a Chromebook so the whole lab group can see.",
+      "features": [
+        "USB display",
+        "Slide kit"
+      ]
+    },
+    {
+      "id": "sensor-kit",
+      "name": "Lab Sensor Kit",
+      "category": "Science",
+      "type": "equipment",
+      "location": "Science Wing, Room 122",
+      "quantity": 8,
+      "maxHours": 4,
+      "requiresApproval": false,
+      "description": "Temperature, motion, and force sensors that connect to Chromebooks for data-collection labs.",
+      "features": [
+        "3 sensors",
+        "Bluetooth"
+      ]
+    },
+    {
+      "id": "study-room-a",
+      "name": "Library Study Room A",
+      "category": "Spaces",
+      "type": "space",
+      "location": "Library",
+      "quantity": 1,
+      "capacity": 6,
+      "maxHours": 2,
+      "requiresApproval": false,
+      "description": "Quiet glass-walled room with a whiteboard and a wall display for group projects.",
+      "features": [
+        "Seats 6",
+        "Wall display",
+        "Whiteboard"
+      ]
+    },
+    {
+      "id": "study-room-b",
+      "name": "Library Study Room B",
+      "category": "Spaces",
+      "type": "space",
+      "location": "Library",
+      "quantity": 1,
+      "capacity": 4,
+      "maxHours": 2,
+      "requiresApproval": false,
+      "description": "Small study room for tutoring, test makeups, and quiet team meetings.",
+      "features": [
+        "Seats 4",
+        "Whiteboard"
+      ]
+    },
+    {
+      "id": "collab-lab",
+      "name": "Collaboration Lab",
+      "category": "Spaces",
+      "type": "space",
+      "location": "Room 108",
+      "quantity": 1,
+      "capacity": 32,
+      "maxHours": 4,
+      "requiresApproval": true,
+      "description": "Flexible classroom with movable tables, four display stations, and a document camera.",
+      "features": [
+        "Seats 32",
+        "4 displays",
+        "Document camera"
+      ]
+    },
+    {
+      "id": "podcast-studio",
+      "name": "Podcast Studio",
+      "category": "Spaces",
+      "type": "space",
+      "location": "Media Center, Room 112",
+      "quantity": 1,
+      "capacity": 4,
+      "maxHours": 2,
+      "requiresApproval": true,
+      "description": "Soundproofed booth with four microphones, a mixer, and a recording computer.",
+      "features": [
+        "Seats 4",
+        "Soundproofed",
+        "Mixer"
+      ]
+    },
+    {
+      "id": "auditorium",
+      "name": "Auditorium",
+      "category": "Spaces",
+      "type": "space",
+      "location": "Auditorium",
+      "quantity": 1,
+      "capacity": 450,
+      "maxHours": 4,
+      "requiresApproval": true,
+      "description": "Main stage with stage lighting, a projector, and a sound booth for assemblies, rehearsals, and performances.",
+      "features": [
+        "Seats 450",
+        "Stage lighting",
+        "Sound booth"
+      ]
+    },
+    {
+      "id": "pa-system",
+      "name": "Portable PA System",
+      "category": "Events",
+      "type": "equipment",
+      "location": "Main Office Storage",
+      "quantity": 2,
+      "maxHours": 6,
+      "requiresApproval": true,
+      "description": "Battery-powered speaker with two wireless microphones for pep rallies, club fairs, and outdoor events.",
+      "features": [
+        "Battery powered",
+        "2 microphones"
+      ]
+    },
+    {
+      "id": "folding-tables",
+      "name": "Folding Tables (Set of 10)",
+      "category": "Events",
+      "type": "equipment",
+      "location": "Cafeteria Storage",
+      "quantity": 4,
+      "maxHours": 8,
+      "requiresApproval": false,
+      "description": "Ten 6-foot folding tables on a rolling cart for fundraisers, drives, and showcases.",
+      "features": [
+        "Rolling cart",
+        "6-foot tables"
+      ]
+    },
+    {
+      "id": "canopy-tent",
+      "name": "Pop-up Canopy Tent",
+      "category": "Events",
+      "type": "equipment",
+      "location": "Athletics Storage",
+      "quantity": 3,
+      "maxHours": 8,
+      "requiresApproval": false,
+      "description": "10×10 ft tent with sandbag weights for outdoor fundraisers, games, and club fairs.",
+      "features": [
+        "10×10 ft",
+        "Weights included"
+      ]
+    }
+  ],
+  "reservations": [
+    {
+      "id": "seed-01",
+      "resourceId": "chromebook-cart",
+      "user": "Ms. Rivera",
+      "role": "teacher",
+      "dayOffset": 0,
+      "start": "08:00",
+      "end": "11:00",
+      "qty": 2,
+      "purpose": "English research essays, periods 1–3",
+      "status": "approved"
+    },
+    {
+      "id": "seed-02",
+      "resourceId": "chromebook-cart",
+      "user": "Mr. Thompson",
+      "role": "teacher",
+      "dayOffset": 0,
+      "start": "12:30",
+      "end": "14:30",
+      "qty": 1,
+      "purpose": "AP Government civics simulation",
+      "status": "approved"
+    },
+    {
+      "id": "seed-03",
+      "resourceId": "study-room-a",
+      "user": "Jordan Lee",
+      "role": "student",
+      "dayOffset": 0,
+      "start": "14:30",
+      "end": "16:00",
+      "qty": 1,
+      "purpose": "FBLA team presentation practice",
+      "status": "approved"
+    },
+    {
+      "id": "seed-04",
+      "resourceId": "ti-84",
+      "user": "Ms. Okafor",
+      "role": "teacher",
+      "dayOffset": 0,
+      "start": "07:30",
+      "end": "15:00",
+      "qty": 20,
+      "purpose": "Algebra II unit test",
+      "status": "approved"
+    },
+    {
+      "id": "seed-05",
+      "resourceId": "vr-kit",
+      "user": "Dr. Kim",
+      "role": "teacher",
+      "dayOffset": 0,
+      "start": "10:00",
+      "end": "12:00",
+      "qty": 1,
+      "purpose": "Virtual cell biology field trip",
+      "status": "approved"
+    },
+    {
+      "id": "seed-06",
+      "resourceId": "camera-kit",
+      "user": "Priya Shah",
+      "role": "student",
+      "dayOffset": 1,
+      "start": "15:00",
+      "end": "17:00",
+      "qty": 2,
+      "purpose": "Yearbook photos at the fall concert",
+      "status": "pending"
+    },
+    {
+      "id": "seed-07",
+      "resourceId": "collab-lab",
+      "user": "Dr. Kim",
+      "role": "teacher",
+      "dayOffset": 1,
+      "start": "09:00",
+      "end": "12:00",
+      "qty": 1,
+      "purpose": "Robotics club design review",
+      "status": "approved"
+    },
+    {
+      "id": "seed-08",
+      "resourceId": "mic-kit",
+      "user": "Maya Chen",
+      "role": "student",
+      "dayOffset": 1,
+      "start": "12:00",
+      "end": "13:00",
+      "qty": 1,
+      "purpose": "Interview for the student spotlight video",
+      "status": "pending"
+    },
+    {
+      "id": "seed-09",
+      "resourceId": "printer-3d",
+      "user": "Ava Martinez",
+      "role": "student",
+      "dayOffset": 2,
+      "start": "13:00",
+      "end": "15:00",
+      "qty": 1,
+      "purpose": "Engineering bridge prototype",
+      "status": "pending"
+    },
+    {
+      "id": "seed-10",
+      "resourceId": "projector",
+      "user": "Ms. Rivera",
+      "role": "teacher",
+      "dayOffset": 2,
+      "start": "10:00",
+      "end": "12:00",
+      "qty": 1,
+      "purpose": "Poetry slam slideshow",
+      "status": "approved"
+    },
+    {
+      "id": "seed-11",
+      "resourceId": "auditorium",
+      "user": "Coach Daniels",
+      "role": "teacher",
+      "dayOffset": 3,
+      "start": "15:00",
+      "end": "18:00",
+      "qty": 1,
+      "purpose": "Winter sports awards rehearsal",
+      "status": "pending"
+    },
+    {
+      "id": "seed-12",
+      "resourceId": "folding-tables",
+      "user": "Maya Chen",
+      "role": "student",
+      "dayOffset": 3,
+      "start": "10:00",
+      "end": "14:00",
+      "qty": 3,
+      "purpose": "Student council canned food drive",
+      "status": "approved"
+    },
+    {
+      "id": "seed-13",
+      "resourceId": "podcast-studio",
+      "user": "Jordan Lee",
+      "role": "student",
+      "dayOffset": 4,
+      "start": "15:00",
+      "end": "16:30",
+      "qty": 1,
+      "purpose": "School news podcast, episode 4",
+      "status": "pending"
+    },
+    {
+      "id": "seed-14",
+      "resourceId": "chromebook-cart",
+      "user": "Ms. Okafor",
+      "role": "teacher",
+      "dayOffset": 1,
+      "start": "08:00",
+      "end": "12:00",
+      "qty": 3,
+      "purpose": "State test practice session",
+      "status": "approved"
+    },
+    {
+      "id": "seed-15",
+      "resourceId": "study-room-b",
+      "user": "Priya Shah",
+      "role": "student",
+      "dayOffset": -1,
+      "start": "15:00",
+      "end": "16:00",
+      "qty": 1,
+      "purpose": "Chemistry tutoring",
+      "status": "approved"
+    },
+    {
+      "id": "seed-16",
+      "resourceId": "microscope",
+      "user": "Dr. Kim",
+      "role": "teacher",
+      "dayOffset": -2,
+      "start": "09:00",
+      "end": "11:00",
+      "qty": 10,
+      "purpose": "Onion cell lab",
+      "status": "returned"
+    }
+  ],
+  "requests": [
+    {
+      "id": "REQ-1035",
+      "title": "Projector in Room 214 flickers",
+      "type": "IT & Technology Support",
+      "location": "Room 214",
+      "priority": "high",
+      "description": "The ceiling projector flickers and turns off after about ten minutes. It happens with both HDMI and wireless casting.",
+      "status": "in-progress",
+      "user": "Ms. Okafor",
+      "hoursAgo": 30,
+      "updates": [
+        {
+          "status": "open",
+          "note": "Request submitted.",
+          "by": "Ms. Okafor",
+          "hoursAfter": 0
+        },
+        {
+          "status": "in-progress",
+          "note": "Technician scheduled for 2nd period tomorrow. A replacement lamp is on order.",
+          "by": "IT Services",
+          "hoursAfter": 4
+        }
+      ]
+    },
+    {
+      "id": "REQ-1036",
+      "title": "Water fountain near the gym is not draining",
+      "type": "Facilities & Maintenance",
+      "location": "Gymnasium",
+      "priority": "normal",
+      "description": "The fountain outside the east gym doors fills up and does not drain. Water is starting to spill onto the floor.",
+      "status": "open",
+      "user": "Coach Daniels",
+      "hoursAgo": 20,
+      "updates": [
+        {
+          "status": "open",
+          "note": "Request submitted.",
+          "by": "Coach Daniels",
+          "hoursAfter": 0
+        }
+      ]
+    },
+    {
+      "id": "REQ-1037",
+      "title": "Need three boxes of dry-erase markers",
+      "type": "Classroom Supplies",
+      "location": "Room 220",
+      "priority": "low",
+      "description": "Our classroom is out of dry-erase markers. Black and blue preferred.",
+      "status": "resolved",
+      "user": "Mr. Thompson",
+      "hoursAgo": 72,
+      "updates": [
+        {
+          "status": "open",
+          "note": "Request submitted.",
+          "by": "Mr. Thompson",
+          "hoursAfter": 0
+        },
+        {
+          "status": "in-progress",
+          "note": "Pulled from the supply closet.",
+          "by": "Front Office",
+          "hoursAfter": 3
+        },
+        {
+          "status": "resolved",
+          "note": "Delivered to the Room 220 mailbox.",
+          "by": "Front Office",
+          "hoursAfter": 6
+        }
+      ]
+    },
+    {
+      "id": "REQ-1038",
+      "title": "Broken chair in Library Study Room B",
+      "type": "Facilities & Maintenance",
+      "location": "Library",
+      "priority": "normal",
+      "description": "One of the chairs has a cracked leg and wobbles. I moved it into the corner so nobody sits on it.",
+      "status": "open",
+      "user": "Jordan Lee",
+      "hoursAgo": 8,
+      "updates": [
+        {
+          "status": "open",
+          "note": "Request submitted.",
+          "by": "Jordan Lee",
+          "hoursAfter": 0
+        }
+      ]
+    },
+    {
+      "id": "REQ-1039",
+      "title": "Wi-Fi keeps dropping in the Science Wing",
+      "type": "IT & Technology Support",
+      "location": "Science Wing",
+      "priority": "urgent",
+      "description": "Students lose their connection every few minutes in Rooms 118–124, which is interrupting online lab submissions.",
+      "status": "in-progress",
+      "user": "Dr. Kim",
+      "hoursAgo": 5,
+      "updates": [
+        {
+          "status": "open",
+          "note": "Request submitted.",
+          "by": "Dr. Kim",
+          "hoursAfter": 0
+        },
+        {
+          "status": "in-progress",
+          "note": "The network team is checking access point SW-3.",
+          "by": "IT Services",
+          "hoursAfter": 1
+        }
+      ]
+    },
+    {
+      "id": "REQ-1040",
+      "title": "Spill in the cafeteria hallway",
+      "type": "Custodial",
+      "location": "Cafeteria",
+      "priority": "high",
+      "description": "A large juice spill near the north doors is making the floor sticky and slippery.",
+      "status": "resolved",
+      "user": "Maya Chen",
+      "hoursAgo": 50,
+      "updates": [
+        {
+          "status": "open",
+          "note": "Request submitted.",
+          "by": "Maya Chen",
+          "hoursAfter": 0
+        },
+        {
+          "status": "resolved",
+          "note": "Cleaned up and a wet-floor sign was placed.",
+          "by": "Custodial Team",
+          "hoursAfter": 1
+        }
+      ]
+    }
+  ],
+  "announcements": [
+    {
+      "title": "Calculators held for midterms",
+      "body": "TI-84 calculators will be held for midterm exams during finals week. Book early if you need them for review sessions.",
+      "tag": "Policy",
+      "daysAgo": 1
+    },
+    {
+      "title": "The Podcast Studio is now bookable",
+      "body": "The new soundproofed studio in the Media Center is open for clubs and classes. Bookings need approval from the media specialist.",
+      "tag": "New",
+      "daysAgo": 3
+    },
+    {
+      "title": "Plug in Chromebook carts by 3:30 PM",
+      "body": "Return carts to the library workroom and plug them in so every device is charged for first period.",
+      "tag": "Reminder",
+      "daysAgo": 6
+    }
+  ],
+  "faq": [
+    {
+      "q": "Who can reserve resources?",
+      "a": "Any student, teacher, or staff member can reserve items in the catalog. Items marked “Needs approval” are reviewed by an administrator before they are confirmed. Teachers can also approve room bookings."
+    },
+    {
+      "q": "Why does my reservation say “Awaiting approval”?",
+      "a": "High-value equipment and large spaces are checked by staff so they are used safely. You will see the decision in My Activity, usually within one school day."
+    },
+    {
+      "q": "How far ahead can I book, and for how long?",
+      "a": "You can book up to 30 days in advance, Monday through Friday, between 7:00 AM and 6:00 PM. Each resource lists its maximum booking length."
+    },
+    {
+      "q": "How do I cancel or return something?",
+      "a": "Open My Activity and select Cancel on any upcoming reservation. For equipment, select Mark returned when you drop it off so the next person knows it is back."
+    },
+    {
+      "q": "What if equipment is broken or a room has a problem?",
+      "a": "Submit a service request with the location and details. You will get a tracking number and can follow every status update on the Requests page."
+    },
+    {
+      "q": "Can I create an account or sign in with Google?",
+      "a": "Yes. Choose your school, then select Continue with Google on the sign-in screen. The first time, this creates your Commons account. Your Google email still needs to be on a domain your school has approved."
+    },
+    {
+      "q": "How will an administrator contact me about a request?",
+      "a": "Administrators can message you about any service request or reservation. Messages show up in My Activity under the Messages tab, and a number appears next to My Activity when you have unread ones."
+    },
+    {
+      "q": "Where is my information stored?",
+      "a": "This version saves data in your browser so it works without an account. A district deployment would connect the same interface to a secure database with school sign-in."
+    }
+  ],
+  "policies": [
+    "Return equipment to its listed location by the end time of your reservation.",
+    "Cancel at least two hours ahead if your plans change so others can use the resource.",
+    "Report damage right away through a service request. Accidental damage is never penalized when it is reported.",
+    "Students reserving spaces after 3:30 PM must list a supervising staff member in the purpose.",
+    "Three missed reservations in a semester pause booking privileges for two weeks."
+  ]
+}
